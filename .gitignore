@@ -1,0 +1,6 @@
+.env
+backend/target/
+.idea/
+*.iml
+.vscode/
+*.log
