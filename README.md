@@ -1,9 +1,13 @@
 # Ticketing System
 
-A learning-first event ticketing backend focused on one hard guarantee: concurrent
+A learning-first event ticketing application focused on one hard guarantee: concurrent
 booking requests must never sell more tickets than an event has available.
 
 **Stack:** Java 21 | Spring Boot | Spring Security | PostgreSQL | Redis | Maven
+
+**Planned frontend (Phase 7):** React with plain JavaScript, Vite, and basic CSS.
+Complete and study the backend phases first, then build the customer booking
+screens and minimal admin tools. Frontend code and npm commands do not exist yet.
 
 This is a new, independently built project. The sibling `../ticketing-system/`
 repository is a third-party reference for workflows and design comparisons; its
@@ -40,6 +44,7 @@ claim, especially around transactions and concurrency.
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Decisions and the reasoning behind them |
 | [Learning roadmap](docs/learning/ROADMAP.md) | Slices, ownership, concepts, and explain-back questions |
 | [Phase 0 study guide](docs/learning/PHASE-0.md) | File-by-file walkthrough, exercises, and copied topic primers |
+| [Phase 1 study guide](docs/learning/PHASE-1.md) | Slice-specific identity/auth readings, decisions, tests, and implementation starting points |
 
 ## Quick start
 

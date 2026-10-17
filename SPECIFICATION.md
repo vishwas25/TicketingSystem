@@ -6,8 +6,8 @@ drift apart.
 
 ## 1. Purpose
 
-Build an independently implemented backend for event discovery and ticket
-booking. The central engineering problem is reserving finite inventory safely
+Build an independently implemented event ticketing application with a Spring
+backend and a small React frontend. The central engineering problem is reserving finite inventory safely
 when many users submit requests at once. This is also a structured learning
 project: the owner should be able to explain and demonstrate each shipped
 behavior, not merely recognize the code.
@@ -59,13 +59,16 @@ alone is insufficient.
 - Validation, stable API errors, OpenAPI documentation, structured logs,
   health/metrics, automated tests, and CI.
 - Notification and audit flows after the transactional booking core is sound.
+- A learning-focused React frontend using plain JavaScript and CSS, introduced
+  in Phase 7 after the backend gates pass. It covers customer booking flows and
+  minimal admin event management/reporting, not a production design system.
 
 ### Out of scope for the first release
 
 - Real payment processing or handling card data.
 - Microservices, Kubernetes, and a production deployment.
-- A frontend. The sibling repository contains an Angular UI that may be
-  consulted later, but this project starts backend-first and uses OpenAPI/curl.
+- Advanced frontend features such as SSR, complex global state frameworks,
+  seat maps, and a custom component/design-system library.
 - Kafka, waitlists, ticket PDF delivery, and production email delivery until
   the core flows and their tests are complete.
 
@@ -92,6 +95,18 @@ alone is insufficient.
   timestamps and use `Instant` in Java.
 - **Code generation:** no Lombok initially; explicit code keeps the learning
   path inspectable. Revisit only by an explicit decision.
+- **Frontend (planned, not installed):** React with Vite, plain JavaScript/JSX,
+  basic CSS, React Router, and the browser `fetch` API in a separate `frontend/`
+  directory. Use local state and minimal context for shared session state;
+  no TypeScript, Redux, Next.js, or UI framework is required for this extension.
+  Node/npm build the UI; Maven continues to build only the backend.
+- **Browser integration:** Finalize browser token transport/storage, refresh,
+  logout, CORS, and CSRF behavior before Phase 1 auth contracts are frozen.
+  Prefer short-lived access tokens in memory; do not put refresh tokens in
+  localStorage. If refresh uses an HttpOnly cookie, explicitly design cookie
+  attributes, credentialed requests, allowed origins, and CSRF protection.
+  The UI never replaces backend validation, ownership checks, or inventory
+  decisions. Document the local Vite proxy/origin arrangement in Phase 7.
 
 Token rotation policy, booking limits, cancellation
 cutoff, and monetary representation are confirmed in the relevant design slices
@@ -146,6 +161,7 @@ The detailed, owner-assigned slices and completion checks are in
 | 4 | Redis caching and abuse protection without weakening correctness |
 | 5 | Notifications, audit trail, and admin reporting |
 | 6 | Observability, security review, load experiment, and project demo |
+| 7 | Basic React customer/admin UI, browser integration tests, and full application demo |
 
 Implementation completion and learning completion are tracked separately.
 Phase 0 was implemented by AI at the owner's request, with the study and
