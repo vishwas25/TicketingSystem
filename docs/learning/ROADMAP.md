@@ -208,7 +208,7 @@ to each slice. Complete the Phase 0 learning gate first.
 | # | Slice | Who | Learn | Done when | Status |
 |---|---|---|---|---|---|
 | 1.1 | User and role schema, entities, repositories | You | JPA mapping, enums, uniqueness, constraints | PostgreSQL integration test saves and reloads a user | implemented; study and explain-back pending |
-| 1.2 | Registration DTO, validation, service, password hashing | You | Bean Validation, service boundaries, password hashing | Valid registration succeeds; invalid/duplicate inputs fail safely | todo |
+| 1.2 | Registration DTO, validation, service, password hashing | You | Bean Validation, service boundaries, password hashing | Valid registration succeeds; invalid/duplicate inputs fail safely | implemented; study and explain-back pending |
 | 1.3 | Login and JWT issuance/validation | Pair | JWT claims, signing keys, expiry, filter chain | Valid token authenticates; invalid/expired tokens are rejected | todo |
 | 1.4 | Refresh-token storage, rotation, logout/reuse policy | You | Token families, hashing, replay and concurrent refresh | Unit and integration tests cover rotate, expire, replay, logout | todo |
 | 1.5 | Role and ownership authorization | You -> AI | 401 vs 403; service-layer rules; method security | Endpoint matrix covers anonymous, USER, ADMIN, and wrong owner | todo |

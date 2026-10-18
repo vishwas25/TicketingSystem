@@ -7,9 +7,10 @@ import java.util.Locale;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PhaseOneUserIT extends AbstractIntegrationTest {
+class UserPersistenceIT extends AbstractIntegrationTest {
 
     @Autowired
     private UserRepository userRepository;

@@ -112,8 +112,9 @@ DTOs, password encoding/matching, and safe duplicate/validation errors.
    do not accidentally break registration, health, or Swagger. Alternatively,
    discuss using the crypto module first and the starter in 1.3.
 4. Encode before saving and use `matches` to verify the hash in tests. Salted
-   hashes need not be identical for identical inputs. Select encoder/password
-   limits deliberately; inherited bcrypt-specific limits are not universal.
+   hashes need not be identical for identical inputs. This implementation uses
+   bcrypt, whose input limit is 72 UTF-8 bytes, not 72 characters; reject
+   over-limit input before encoding. Revisit the limit if the encoder changes.
 5. Test valid registration, bad/missing fields, case-insensitive duplicates,
    and stored hash behavior. A pre-insert existence check cannot prevent a race;
    also handle the unique constraint safely at the transaction boundary.

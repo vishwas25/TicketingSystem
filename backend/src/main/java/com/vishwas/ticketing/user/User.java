@@ -41,6 +41,12 @@ public class User {
 
     protected User() { }
 
+    public User(String email, String passwordHash) {
+        this.email = email;
+        this.passwordHash = passwordHash;
+        this.role = UserRole.USER;
+    }
+
     public User(String email, String passwordHash, UserRole role) {
         this.email = email;
         this.passwordHash = passwordHash;
