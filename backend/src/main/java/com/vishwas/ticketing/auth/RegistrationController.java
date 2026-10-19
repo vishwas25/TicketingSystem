@@ -21,7 +21,7 @@ public class RegistrationController {
         this.registrationService = registrationService;
     }
 
-        public record RegistrationRequest(
+    public record RegistrationRequest(
             @NotBlank @Size(min = 5, max = 254) @Email String email,
             @NotBlank @Size(min = 8, max = 72) String password) {
     }
